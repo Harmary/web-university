@@ -449,10 +449,19 @@ body {
 
 //------------------------------------------------------------gallery--------------------------------------------------------------
 .collage {
-    display: flex;
-    justify-content: center;
-    &__table {
-        margin-bottom: 50px;
+
+    display: block;
+    padding-bottom: 150px;
+
+    &__table{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+
+    &__row{
+        flex-wrap: wrap;
     }
     &__item {
         max-width: 400px;
