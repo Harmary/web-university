@@ -19,15 +19,15 @@ function gallery() {
         "Пикник", "Surfcoffee", "Чтение во дврике"
     ];
 
-    for (i = 0; i < photos.length; i++) {
+    for (let i = 0; i < photos.length; i++) {
         photos[i] = path + photos[i];
     }
 
-    for (i = 0; i < rowNum; i++) {
+    for (let i = 0; i < rowNum; i++) {
 
         document.write('<div class="collage__row row flex-column flex-sm-row justify-content-center ">');
 
-        for (j = 0; j < itemNum; j++) {
+        for (let j = 0; j < itemNum; j++) {
             document.write('<div class="collage__item">');
             document.write('<img src="' + photos[item] + '" alt="' + titles[item] + '">');
             document.write('<span>' + titles[item] + '</span>');
