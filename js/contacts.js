@@ -4,51 +4,68 @@ var myform = document.forms[0];
 var gender = document.form.gender;
 var age = document.form.age;
 var telephone = document.form.telephone;
-var truePhone = /^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/g;
-var trueFio = /^([а-яА-Я ]{2,30})\s([а-яА-Я ]{2,30})\s([а-яА-Я]{2,30})$/g;
+var truePhone = /^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+var trueFio = /^([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})$/;
 
-myform.addEventListener('submit', (e) => {
-
+var fioValidator = () => {
   if (fio.value === '' || fio.value == null) {
-    alert("Введите фио");
-    e.preventDefault();
-    fio.focus();
+    fio.setCustomValidity("Введите фио");
+  } else if (!trueFio.test(fio.value)) {
+    fio.setCustomValidity("Введите корректные фио");
+  } else {
+    fio.setCustomValidity('');
   }
-  else {
-    if (trueFio.test(fio.value) != true) {
-      alert("Введите корректные фио");
-      e.preventDefault();
-      fio.focus();
-    }
-  }
+};
 
+fio.addEventListener('change', fioValidator);
+
+
+var genderValidator = ()=>{
   if ((gender[0].checked == false) && (gender[1].checked == false)) {
-    alert("Пожалуйста, выберите Ваш пол: Мужской или Женский");
-    e.preventDefault();
+    gender[0].setCustomValidity("Выберете пол");
+  } else {
+    gender[0].setCustomValidity("");
   }
+};
 
+gender[0].addEventListener('change',genderValidator);
+
+
+var emailValidator = () => {
   if (email.value === '' || email.value == null) {
-    alert("Введите mail");
-    e.preventDefault();
-    email.focus();
+    email.setCustomValidity("Введите mail");
+  } else {
+    email.setCustomValidity("");
   }
-  if (age.value == '-') {
-    alert("Введите возраст");
-    e.preventDefault();
-    age.focus();
-  }
-  // console.log(/^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(telephone.value));
-  if (telephone.value == "" || telephone.value == null) {
-    alert("Введите номер телефона");
-    e.preventDefault();
-    telephone.focus();
-  }
-  else {
-    if (truePhone.test(telephone.value) != true) {
-      alert("Введите корректный номер телефона");
-      e.preventDefault();
-      telephone.focus();
-    }
-  }
+};
 
-});
+email.addEventListener('change', emailValidator);
+
+
+var ageValidator = () => {
+  if (age.value == '-') {
+    age.setCustomValidity("Введите возраст");
+  } else {
+    age.setCustomValidity("");
+  }
+};
+age.addEventListener('change', ageValidator);
+
+
+var telephoneValidator = () => {
+  if (telephone.value == "" || telephone.value == null) {
+    telephone.setCustomValidity("Введите номер телефона");
+  } else if (truePhone.test(telephone.value) != true) {
+    telephone.setCustomValidity("Введите корректный номер телефона");
+  } else {
+    telephone.setCustomValidity("");
+  }
+};
+telephone.addEventListener('change', telephoneValidator);
+
+
+fioValidator();
+genderValidator();
+emailValidator();
+ageValidator();
+telephoneValidator();
