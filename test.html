@@ -69,14 +69,15 @@
 
                 <section class="test">
                     <!-- <div class="container"> -->
-                        <form class="form test-form" method="post" action="mailto:maria.h4rlamova@gmail.com">
+                        <form class="form test-form" name="form" action="mailto:maria.h4rlamova@gmail.com" method="post">
                             <div class="form-group test-form__name">
                                 <label for="test-form__fio">ФИО</label>
                                 <input class="form-control" id="test-form__fio" type="text" placeholder="Иванов Иван Иванович">
                             </div>
                             <div class="form-group test-form__group">
                                 <label for="test-form__gr">Группа</label>
-                                <select class="form-control" name="test-form__gr" id="test-form__gr">
+                                <select class="form-control" name="studyGroup" id="test-form__gr">
+                                    <option>-</option>
                                     <optgroup label="1 курс">
                                         <option value="ИС/б-21-1-о">ИС/б-21-1-о</option>
                                         <option value="ИС/б-21-2-о">ИС/б-21-2-о</option>
@@ -104,14 +105,15 @@
                             <div class="form-group test-form__block">
                                 <p class="test-form__question ">1) Из двух пар чисел (8, 14) и (14, 14) бинарное
                                     отношение R(a,b) = b > a выполняется</p>
-                                <input type="checkbox" id="test-form__ans1">
+                                <input type="checkbox" name="firstAnswer1" id="test-form__ans1">
                                 <label for="test-form__ans1">для первой</label>
-                                <input type="checkbox" id="test-form__ans2">
-                                <label for="test-form__ans2">для второй</label>
+                                <input type="checkbox" name="firstAnswer2" id="test-form__ans2">
+                                <label for="test-form__ans2" >для второй</label>
                             </div>
                             <div class="form-group test-form__block">
                                 <p class="test-form__question ">2) Связный граф, который становится несвязным при удалении любого ребра, является</p>
-                                <select class="form-control" id="test-form__q2ans">
+                                <select class="form-control" name="secondQuestion" id="test-form__q2ans">
+                                    <option >-</option>
                                     <option>четным</option>
                                     <option>циклическим</option>
                                     <option>полным</option>
@@ -122,7 +124,7 @@
                                 <p>
                                     3) A и B – множества действительных чисел: А = [0, 7], B = [0, 2]. Множество B\A равно
                                 </p>
-                                <textarea class="test-form__textarea" name="test-form__ans" id="test-form__ans"></textarea>
+                                <textarea class="test-form__textarea" name="thirdTextarea" id="test-form__ans"></textarea>
                             </div>
                             <input  class="btn btn-primary" type="submit" value="Submit">
                             <input class="btn btn-primary" type="reset" value="Reset">
@@ -134,5 +136,5 @@
     </div>
 
 </body>
-
+<script src="js/test.js"></script>
 </html>

@@ -14,7 +14,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -31,30 +31,28 @@
                         <h1 class="main-title">Свяжись со мной!</h1>
                     </div>
                 </div>
-
                 <section class="contact">
-                    <!-- <div class="container"> -->
-                    <form class="form" name="form" id="form" action="mailto:maria.h4rlamova@gmail.com"  method="post">
-
-                        <div class="form-group contact-name">
+                    <form class="form" name="form" id="form" action="mailto:maria.h4rlamova@gmail.com" method="post">
+                        <div class="form-group contact__name">
                             <h2>ФИО</h2>
-                            <input class="form-control" name="fio" type="text" placeholder="Иванов Иван Иванович">
+                            <input class="form-control" name="fio" id="fio" type="text" placeholder="Иванов Иван Иванович">
                         </div>
                         <div class="form-group contact__gender">
                             <h2>Пол</h2>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form-gender" id="gender-male" value="option1">
+                                <input class="form-check-input" type="radio" name="gender" id="gender-male"value="option1">
                                 <label class="form-check-label" for="gender-male">Мужской</label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form-gender" id="gender-female" value="option1">
+                                <input class="form-check-input" type="radio" name="gender" id="gender-female" value="option1">
                                 <label class="form-check-label" for="gender-female">Женский</label>
                             </div>
                         </div>
                         <div class="form-group contact__age">
                             <h2 for="form-age">Возраст</h2>
-                            <select class="form-control" name="form-age" id="form-age">
+                            <select class="form-control" name="age" id="form-age">
+                                <option >-</option>
                                 <option>16-18</option>
                                 <option>18-21</option>
                                 <option>21-25</option>
@@ -65,17 +63,20 @@
                         </div>
                         <div class="form-group contact__email">
                             <h2 for="form-email">Электронная почта</h2>
-                            <input type="email" class="form-control" name="form-email" id="form-email" placeholder="name@example.com">
+                            <input type="email" class="form-control" name="email" id="form-email" placeholder="name@example.com">
                         </div>
+                        <div class="form-group contact__telephone">
+                            <h2 for="form-telephone">Номер телефона</h2>
+                            <input type="tel" class="form-control" name="telephone" id="form-telephone" placeholder="+7(999)1111111">
+                        </div>
+                        <div class="error"></div>
                         <input class="btn btn-primary" type="submit" value="Submit">
                         <input class="btn btn-primary" type="reset" value="Reset">
                     </form>
-                    <!-- </div> -->
                 </section>
             </div>
         </menu>
     </div>
-
 </body>
-
+<script src="js/contacts.js"></script>
 </html>
