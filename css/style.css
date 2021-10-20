@@ -78,6 +78,12 @@ body {
     color: #000; }
     .navbar-nav li:last-child {
       margin-right: 0; }
+    .navbar-nav li img {
+      margin-top: 4px;
+      width: 10px;
+      height: 10px; }
+    .navbar-nav li a {
+      display: inline; }
   @media (max-width: 992px) {
     .navbar-nav {
       margin-left: 0; }

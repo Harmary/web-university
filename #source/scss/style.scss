@@ -37,6 +37,14 @@ body {
         &:last-child {
             margin-right: 0;
         }
+        img {
+            margin-top: 4px;
+            width: 10px;
+            height: 10px;
+        }
+        a{
+            display: inline;
+        }
     }
     @media (max-width: 992px) {
         margin-left: 0;
