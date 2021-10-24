@@ -31,11 +31,11 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="container ">
-            <ul class="navbar-nav justify-content-center ">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <div class="container">
+            <ul class="navbar-nav justify-content-center">
                 <li class="nav-item active ">
-                    <img class="nav-img" src="/img/star.svg" alt="">
+                    <img class="nav-img" src="/img/cycle.svg" alt="">
                     <a class="nav-link" href="/index.html">Hello<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -44,7 +44,14 @@
                 </li>
                 <li class="nav-item">
                     <img class="nav-img" src="/img/cycle.svg" alt="">
-                    <a class="nav-link" href="/interests.html">Интересы</a>
+                    <div class="dropdown__menu" id="dropdown">
+                        <a class="nav-link " id="dropbtn" href="#">Интересы</a>
+                        <ul id="myDropdown" class="dropdown-content">
+                            <li><a href="/interests.html#books">Книги</a></li>
+                            <li><a href="/interests.html#films">Фильмы</a></li>
+                            <li><a href="/interests.html#hobbies">Хобби</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <img class="nav-img" src="/img/cycle.svg" alt="">
@@ -63,15 +70,17 @@
                     <a class="nav-link" href="/test.html">Тест</a>
                 </li>
             </ul>
-
+            
         </div>
     </div>
+    <span id="data"></span>
 </nav>
-        <div class="content">
+        <div class="content" id="content">
             <div class="t-gallery">
                 <h1 class="main-title">Посмотри мои фото тут!</h1>
                 <p> * Они тут лучше, чем в инстаграме</p>
             </div>
+            <div class="bigImage hide" id="bigImage"></div>
             <section class="collage">
                 <div class="collage__table">
                     <script src="/js/gallery.js"></script>
@@ -84,4 +93,7 @@
    
 </body>
 <script src="/js/changeImage.js"></script>
+<script src="/js/data.js"></script>
+<script src="/js/dropdown.js"></script>
+<script src="/js/BigPhoto.js"></script>
 </html>

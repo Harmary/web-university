@@ -7,12 +7,13 @@ for(let i = 0; i < menuItems.length; i++){
         image[i].src = "/img/star.svg";
     });
     menuItems[i].addEventListener("mouseout",function changeImage(){
-        // if(menuItems[i].className !== "active"){
+        if(!menuItems[i].classList.contains("active")){
             image[i].src = "/img/cycle.svg";
-        // }
+        }
         
     });
-    // menuItems[i].addEventListener("click",function changeLinkClass(){
-    //     menuItems[i].classList += "active";
-    // });
+     menuItems[i].addEventListener("click",function changeLinkClass(){
+         menuItems[i].classList.toggle('active');
+         image[i].src = "/img/star.svg";
+     });
 }
