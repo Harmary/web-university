@@ -1,16 +1,17 @@
+var close = document.getElementById('closeCross');
+var bigPhoto = document.getElementById('bigImage');
 var photos = document.getElementsByClassName('collage__item');
-for (let i = 0; i < photos.length; i++) {
-    photos[i].addEventListener("click",function(){
-       let image = photos[i].firstChild.cloneNode(false);
-       var bigImage = document.getElementById('bigImage');
-       bigImage.classList.toggle('hide'); 
-       bigImage.appendChild(image);
-    });   
-}
+var content = document.getElementById('img01');
+var captionText = document.getElementById('caption');
 
-// document.body.addEventListener('click',function(){
-//     if (bigImage.classList.contains('hide')==false){
-//         bigImage.classList.add('hide'); 
-//     }
-    
-// });
+close.addEventListener("click", function () {
+    bigPhoto.style.display = 'none';
+});
+
+for (let i = 0; i < photos.length; i++) {
+    photos[i].addEventListener("click", function () {
+        bigPhoto.style.display = 'block';
+        content.src = photos[i].firstChild.src;
+        captionText.innerHTML = photos[i].firstChild.alt; 
+    });
+}

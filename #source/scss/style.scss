@@ -1,5 +1,5 @@
 // Файл обнуляющих стилей
-@import "nullstyle.scss";
+@import "_nullstyle.scss";
 //Подключение шрифтов
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
@@ -57,7 +57,7 @@ body {
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 53px;
+            top: 40px;
             background-color: #f9f9f9;
             max-width: 120px;
             box-sizing: border-box;
@@ -525,8 +525,7 @@ body {
             }
         }
     }
-    @media (max-width: 900px) {
-    }
+   
 }
 .t-gallery {
     margin: 100px auto;
@@ -535,33 +534,80 @@ body {
         font-family: "Open Sans", sans-serif;
     }
 }
-.bigImage{
+
+#bigImage {
+    display: none;
     position: fixed;
-    width: auto;
-    height: auto;
-    left: 50%;
-    top: 50%;
-    margin-left: -350px;
-    margin-top: -350px;
-    z-index: 2;
-    box-shadow: 0px 0px 25px rgb(0, 0, 0);
-    &.hide{
-        display: none;
-    }
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;    
+    overflow: auto;
+    background-color: rgba(116, 116, 116, 0.7);
     img {
-        max-width: 700px;
+        display: block;
+        margin: 50px auto 0px auto;
+        width: 600px;
+        // border: 2px solid #000;
         height: auto;
     }
+    #caption {
+        margin: auto;
+        display: block;
+        background-color: rgb(255, 255, 255);
+        // border-radius: 10px;
+        // border: 2px solid #000;
+        max-width: 600px;
+        text-align: center;
+        // font-weight: bold;
+        color: #000;
+        padding-top: 17px;
+        height: 50px;
+    }
+    .close{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer; 
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    @media (max-width: 600px) {
+
+        img {
+            display: block;
+            margin: 80px auto 0px auto;
+            width: 300px;
+            // border: 2px solid #000;
+            height: auto;
+        }
+        #caption {
+            margin: auto;
+            display: block;
+            background-color: rgb(255, 255, 255);
+            // border-radius: 10px;
+            // border: 2px solid #000;
+            max-width: 300px;
+            text-align: center;
+            // font-weight: bold;
+            color: #000;
+            padding-top: 17px;
+            height: 50px;
+        }
+    }
 }
+
 .overlay {
     background: #000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0.5;
-  z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    z-index: 1;
 }
 //------------------------------------------------------contacts-------------------------------------------------------
 .t-contact {
