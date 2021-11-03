@@ -4,7 +4,7 @@ bdayInput.addEventListener("focus", function () {
     calendar.style.display = "flex";
 });
 bdayInput.addEventListener("blur", function () {
-    if (bdayInput.value != '1.1.1940') {
+    if (bdayInput.value != '1.01.1940') {
         calendar.style.display = "none";
     }
 
@@ -39,6 +39,9 @@ function drawMonth(d, daysInMonth) {
 function selectDate(day) {
     var year = document.getElementById("year-select").value;
     var month = document.getElementById("month-selection").value;
+    if(month<10){
+        month = '0'+month;
+    }
     document.getElementById("bday").value = day + '.' + month + '.' + year;
 }
 

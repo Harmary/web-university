@@ -658,6 +658,17 @@ body {
             }
         }
     }
+    .validation-feedback{
+        margin-top: 10px;
+
+    }
+    .bad{
+        color: #dc3545;
+
+    }
+    .good{
+
+    }
 }
 .form-group {
     margin-bottom: 30px;

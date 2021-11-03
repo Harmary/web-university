@@ -586,6 +586,10 @@ body {
       text-align: center; }
       .form__calendar .calendar__days td {
         padding: 3px; }
+  .form .validation-feedback {
+    margin-top: 10px; }
+  .form .bad {
+    color: #dc3545; }
 
 .form-group {
   margin-bottom: 30px; }
