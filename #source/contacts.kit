@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/history.js"></script>
+    <script type="text/javascript">
+        setCookie(5);
+      </script>
     <title>Personal website</title>
 </head>
 
@@ -43,11 +47,15 @@
                                 <input class="form-check-input" type="radio" name="gender" id="gender-male"value="option1">
                                 <label class="form-check-label" for="gender-male">Мужской</label>
                             </div>
-
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gender" id="gender-female" value="option1">
                                 <label class="form-check-label" for="gender-female">Женский</label>
                             </div>
+                        </div>
+                        <div class="form-group contact__bday">
+                            <h2 for="form-bday">Дата рождения</h2>
+                            <input class="form-control" type="text" name="form-bday" id="bday">
+                            <!-- @import "calendar.html" -->
                         </div>
                         <div class="form-group contact__age">
                             <h2 for="form-age">Возраст</h2>
@@ -80,4 +88,5 @@
 </body>
 <!-- @include "scripts.html" -->
 <script src="js/contacts.js"></script>
+<script src="js/calendar.js"></script>
 </html>

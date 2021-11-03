@@ -17,7 +17,7 @@ var fioValidator = () => {
   }
 };
 
-fio.addEventListener('change', fioValidator);
+fio.addEventListener('change', fioValidator,false);
 
 
 var genderValidator = ()=>{
