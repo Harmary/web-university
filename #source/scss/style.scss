@@ -667,6 +667,7 @@ body {
     }
     &__calendar{
         display: none;
+        z-index: 100;
         justify-content: center;
         padding: 10px 0;
         box-sizing: border-box;
@@ -728,7 +729,6 @@ body {
     border: 1px solid black;
     box-shadow: 6px 6px #00a;
   }
-
 //---------------------------------------------------------test------------------------------------------------------------------
 .t-test {
     margin: 50px auto;
@@ -796,6 +796,105 @@ body {
 #test-form__ans2 {
     margin-left: 10px;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;    
+    overflow: auto;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    background-color: rgba(116, 116, 116, 0.7);
+    &__dialog {
+        position: absolute;
+        top:45%;
+        left:30%;
+        width: 600px;
+        height: auto;
+
+    }
+
+    &__content {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: .3rem;
+        outline: 0;
+    }
+
+    &__header {
+        display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid #eceeef;
+
+    }
+
+    &__title {
+        margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.5;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    &__body {
+        position: relative;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 15px;
+        overflow: auto;
+        p{
+            display: block;
+            margin: 20px auto 40px auto;
+        }
+    }
+    &__buttons{
+        display: flex;
+        justify-content: center;
+        .yes-btn{
+            background-color: rgb(168, 255, 157);
+            width: 70px;
+        }
+        .no-btn{
+            background-color: rgb(255, 157, 157);
+            width: 70px;
+            margin-left: 100px;
+        }
+    }
+}
+.close {
+}
+
+
 //----------------------------------------------------study----------------------------------------------------
 .t-study {
     margin: 50px auto;

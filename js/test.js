@@ -34,7 +34,7 @@ var emailValidator = () => {
 email.addEventListener('change', emailValidator);
 
 var groupValidator = () => {
-  if (group.val() == '-') {
+  if (group.value == '-') {
     group.setCustomValidity('Выбирете вашу группу');
   }
   else{
@@ -42,7 +42,7 @@ var groupValidator = () => {
   }
 };
 
-group.change(groupValidator);
+group.addEventListener('change',groupValidator);
 
 var secondQuestionValidator = () => {
   if (secondQuestion.value == '-') {

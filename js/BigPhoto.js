@@ -47,8 +47,6 @@ $(".left-arrow").click(function () {
     } else {
         actualItem--;
     }
-    $("#img01").hide(3000);
-    $('#img01').fadeIn();
     $('#img01').attr("src", imagesSrc[actualItem]);
     $('#caption').html(imagesAlt[actualItem]);
 });
