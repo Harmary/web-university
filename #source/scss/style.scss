@@ -699,6 +699,7 @@ body {
 }
 .form-group {
     margin-bottom: 30px;
+    position: relative;
 }
 .form-control {
     min-width: 800px;
@@ -714,6 +715,19 @@ body {
         min-width: 250px;
     }
 }
+
+.popover{
+    position:absolute;
+    top:80px;
+    left:300px;
+    box-sizing: border-box;
+    padding:5px;
+    display:none;
+    font-size:12px;
+    background:pink;
+    border: 1px solid black;
+    box-shadow: 6px 6px #00a;
+  }
 
 //---------------------------------------------------------test------------------------------------------------------------------
 .t-test {

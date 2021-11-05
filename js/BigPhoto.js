@@ -18,9 +18,9 @@ $('.collage__item').each(function () {
     $(this).click(function () {
         $('#bigImage').show();
         $('#img01').attr("src", $(this).children(0).attr("src"));
-        $('.imgblock').show(3000);
+        $('.imgblock').show();
         $('#caption').html($(this).children(0).attr("alt"));
-        $('#caption').show(3000);
+        $('#caption').show();
         for (let i = 0; i < imagesSrc.length; i++) {
             if ($(this).children(0).attr("src") == imagesSrc[i]) {
                 actualItem = i;

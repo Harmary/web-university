@@ -614,7 +614,8 @@ body {
     color: #dc3545; }
 
 .form-group {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  position: relative; }
 
 .form-control {
   min-width: 800px; }
@@ -627,6 +628,20 @@ body {
   @media (max-width: 576px) {
     .form-control {
       min-width: 250px; } }
+
+.popover {
+  position: absolute;
+  top: 80px;
+  left: 300px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+  display: none;
+  font-size: 12px;
+  background: pink;
+  border: 1px solid black;
+  -webkit-box-shadow: 6px 6px #00a;
+  box-shadow: 6px 6px #00a; }
 
 .t-test {
   margin: 50px auto; }

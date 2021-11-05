@@ -21,9 +21,13 @@ var trueFio = /^([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})\s
 
 
 fio.after("<div class='validation-feedback' id='fio-feedback'></div>");
+fio.after("<div class='popover' id='fio-popover'>Введите через пробел фамилию имя отчество (пример: Иванов Иван Иванович)</div>");
 email.after("<div class='validation-feedback' id='email-feedback'></div>");
+email.after("<div class='popover' id='email-popover'>Введите электронную почту (пример: sutulaya@gmail.com)</div>");
 bday.after("<div class='validation-feedback' id='bday-feedback'></div>");
+bday.after("<div class='popover' id='bday-popover'>Введите дату в формате DD/MM/YYYY</div>");
 telephone.after("<div class='validation-feedback' id='telephone-feedback'></div>");
+telephone.after("<div class='popover' id='telephone-popover'>Введите телефон в формате +7/+3/8 и 10 цифр номера (пример: +79780006545)</div>");
 age.after("<div class='validation-feedback' id='age-feedback'></div>");
 submit.attr("disabled", true);
 
@@ -59,6 +63,15 @@ fio.blur(function () {
   submit.attr("disabled",disabledStatus());
 });
 
+fio.mouseenter(function(){
+  
+  $("#fio-popover").toggle("slow");
+});
+fio.mouseleave(function(){
+
+  $("#fio-popover").toggle(3000);
+});
+
 //проверка почты
 email.blur(function () {
   if (email.val() === '' || email.val() == null) {
@@ -76,6 +89,15 @@ email.blur(function () {
 });
 
 
+email.mouseenter(function(){
+  
+  $("#email-popover").toggle("slow");
+});
+email.mouseleave(function(){
+
+  $("#email-popover").toggle(3000);
+});
+
 // проверка даты рождения
 bday.blur(function () {
   if (bday.val() === '' || bday.val() === null) {
@@ -92,6 +114,14 @@ bday.blur(function () {
   submit.attr("disabled",disabledStatus());
 });
 
+
+bday.mouseenter(function(){
+
+  $("#bday-popover").toggle("slow");
+});
+bday.mouseleave(function(){
+  $("#bday-popover").toggle(3000);
+});
 // проверка телефона
 
 telephone.blur(function () {
@@ -114,6 +144,16 @@ telephone.blur(function () {
     flags["_telephone"] = true;
   }
   submit.attr("disabled",disabledStatus());
+});
+
+
+telephone.mouseenter(function(){
+  
+  $("#telephone-popover").toggle("slow");
+});
+telephone.mouseleave(function(){
+
+  $("#telephone-popover").toggle(3000);
 });
 
 // проверка возраста
