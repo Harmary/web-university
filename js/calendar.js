@@ -1,18 +1,16 @@
 var bdayInput = document.getElementById("bday");
 var calendar = document.getElementById("calendar");
+var calendarLink = document.getElementsByClassName("calendar__link");
 bdayInput.addEventListener("focus", function () {
     calendar.style.display = "flex";
 });
-bdayInput.addEventListener("blur", function () {
-    if (bdayInput.value != '1.01.1940') {
+for (let i = 0; i < calendarLink.length; i++) {
+   
+calendarLink[i].addEventListener("click", function () {
         calendar.style.display = "none";
-    }
-
 });
-// calendar.addEventListener("click",function(){
-//     calendar.style.display = "block";    
-// });
-
+    
+}
 
 drawMonth(0, 31);
 selectDate(1);
