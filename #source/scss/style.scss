@@ -1,5 +1,5 @@
 // Файл обнуляющих стилей
-@import "_nullstyle.scss";
+@import "nullstyle.scss";
 //Подключение шрифтов
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
@@ -546,7 +546,10 @@ body {
     z-index: 1;    
     overflow: auto;
     background-color: rgba(116, 116, 116, 0.7);
-    img {
+    .imgblock{
+        display: none;
+    }
+    #img01 {
         display: block;
         margin: 50px auto 0px auto;
         width: 600px;
@@ -555,7 +558,7 @@ body {
     }
     #caption {
         margin: auto;
-        display: block;
+        display: none;
         background-color: rgb(255, 255, 255);
         // border-radius: 10px;
         // border: 2px solid #000;
@@ -574,6 +577,30 @@ body {
         color: #000;
         font-size: 40px;
         font-weight: bold;
+    }
+    .right-arrow{
+        position: absolute;
+        top: 50%;
+        right: 200px;
+        cursor: pointer; 
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+        &:hover{
+            font-size: 45px;
+        }
+    }
+    .left-arrow{
+        position: absolute;
+        top: 50%;
+        left: 200px;
+        cursor: pointer; 
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+        &:hover{
+            font-size: 45px;
+        }
     }
     @media (max-width: 600px) {
 

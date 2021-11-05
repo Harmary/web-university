@@ -1,17 +1,54 @@
-var close = document.getElementById('closeCross');
-var bigPhoto = document.getElementById('bigImage');
-var photos = document.getElementsByClassName('collage__item');
-var content = document.getElementById('img01');
-var captionText = document.getElementById('caption');
+// var close = $('#closeCross');
+// var bigPhoto = $('#bigImage');
+// var photos = $('.collage__item');
+// var content = $('#img01');
+// var captionText = $('#caption');
 
-close.addEventListener("click", function () {
-    bigPhoto.style.display = 'none';
+$('#closeCross').click(function () {
+    $('#bigImage').hide();
 });
 
-for (let i = 0; i < photos.length; i++) {
-    photos[i].addEventListener("click", function () {
-        bigPhoto.style.display = 'block';
-        content.src = photos[i].firstChild.src;
-        captionText.innerHTML = photos[i].firstChild.alt; 
+let imagesSrc = [];
+let imagesAlt = [];
+let actualItem = 0;
+
+$('.collage__item').each(function () {
+    imagesSrc.push($(this).children(0).attr("src"));
+    imagesAlt.push($(this).children(0).attr("alt"));
+    $(this).click(function () {
+        $('#bigImage').show();
+        $('#img01').attr("src", $(this).children(0).attr("src"));
+        $('.imgblock').show(3000);
+        $('#caption').html($(this).children(0).attr("alt"));
+        $('#caption').show(3000);
+        for (let i = 0; i < imagesSrc.length; i++) {
+            if ($(this).children(0).attr("src") == imagesSrc[i]) {
+                actualItem = i;
+            }
+        }
     });
-}
+});
+
+$(".right-arrow").click(function () {
+    if (actualItem == (imagesSrc.length - 1)) {
+        actualItem = 0;
+    } else {
+        actualItem++;
+    }
+
+    $('#img01').attr("src", imagesSrc[actualItem]);
+    $('#caption').html(imagesAlt[actualItem]);
+
+});
+
+$(".left-arrow").click(function () {
+    if (actualItem == 0) {
+        actualItem = imagesSrc.length - 1;
+    } else {
+        actualItem--;
+    }
+    $("#img01").hide(3000);
+    $('#img01').fadeIn();
+    $('#img01').attr("src", imagesSrc[actualItem]);
+    $('#caption').html(imagesAlt[actualItem]);
+});

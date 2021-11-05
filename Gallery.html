@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -20,7 +22,7 @@
     <script src="/js/history.js"></script>
     <script type="text/javascript">
         setCookie(4);
-      </script>
+    </script>
     <title>Personal website</title>
 </head>
 
@@ -91,8 +93,12 @@
             </div>
             <div id="bigImage">
                 <span id="closeCross" class="close">&times;</span>
-                <img class="image-content" id="img01" src="" alt="">
+                <span class="left-arrow">&#60;</span>
+
+                <div class="imgblock"> <img class="image-content" id="img01" src="" alt=""></div>
                 <div id="caption"></div>
+                <span class="right-arrow">&#707;</span>
+
             </div>
             <section class="collage">
                 <div class="collage__table">
@@ -103,10 +109,11 @@
     </div>
     <!-- </menu> -->
     </div>
-   
+
 </body>
 <script src="/js/changeImage.js"></script>
 <script src="/js/data.js"></script>
 <script src="/js/dropdown.js"></script>
 <script src="/js/BigPhoto.js"></script>
+
 </html>

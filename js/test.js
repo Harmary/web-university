@@ -10,7 +10,6 @@ var trueFio = /^([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})\s
 
 
 
-
 var fioValidator = () => {
   if (fio.value === '' || fio.value == null) {
     fio.setCustomValidity("Введите фио");
@@ -35,7 +34,7 @@ var emailValidator = () => {
 email.addEventListener('change', emailValidator);
 
 var groupValidator = () => {
-  if (group.value == '-') {
+  if (group.val() == '-') {
     group.setCustomValidity('Выбирете вашу группу');
   }
   else{
@@ -43,7 +42,7 @@ var groupValidator = () => {
   }
 };
 
-group.addEventListener('change', groupValidator);
+group.change(groupValidator);
 
 var secondQuestionValidator = () => {
   if (secondQuestion.value == '-') {
