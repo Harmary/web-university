@@ -115,7 +115,7 @@ body {
 .header-bg {
   background: #a6dded; }
 
-.main-title {
+.hello__title, .t-facts__title, .t-interests, .t-gallery h1, .t-contact, .t-test, .t-study__title, .t-history {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -125,7 +125,7 @@ body {
   color: #e45f86;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
   @media (max-width: 768px) {
-    .main-title {
+    .hello__title, .t-facts__title, .t-interests, .t-gallery h1, .t-contact, .t-test, .t-study__title, .t-history {
       font-size: 24px; } }
 
 .hello {
@@ -774,12 +774,10 @@ body {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
-    .modal__buttons .yes-btn {
+    .modal__buttons .yes-btn, .modal__buttons .no-btn {
       background-color: #a8ff9d;
       width: 70px; }
     .modal__buttons .no-btn {
-      background-color: #ff9d9d;
-      width: 70px;
       margin-left: 100px; }
 
 .t-study {
