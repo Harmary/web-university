@@ -10,7 +10,6 @@ var trueFio = /^([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})\s
 
 
 
-
 var fioValidator = () => {
   if (fio.value === '' || fio.value == null) {
     fio.setCustomValidity("Введите фио");
@@ -43,7 +42,7 @@ var groupValidator = () => {
   }
 };
 
-group.addEventListener('change', groupValidator);
+group.addEventListener('change',groupValidator);
 
 var secondQuestionValidator = () => {
   if (secondQuestion.value == '-') {

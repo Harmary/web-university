@@ -1,12 +1,3 @@
-var fio = document.getElementById("fio");
-var email = document.getElementById("form-email");
-var myform = document.getElementById("form");
-var genderMale = document.getElementById("gender-male");
-var genderFemale = document.getElementById("gender-female");
-var age = document.getElementById("form-age");
-var bday = document.getElementById("bday");
-var telephone = document.getElementById("form-telephone");
-var submit = document.getElementById("submit");
 var flags = {
   _fio: false,
   _bday: false,
@@ -15,17 +6,32 @@ var flags = {
   _telephone: false
 };
 
+var fio = $('#fio');
+var email = $("#form-email");
+var myform = $("#form");
+var genderMale = $("#gender-male");
+var genderFemale = $("#gender-female");
+var age = $("#form-age");
+var bday = $("#bday");
+var telephone = $("#form-telephone");
+var submit = $("#submit");
+
 var truePhone = /^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 var trueFio = /^([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})\s([A-Za-zА-Яа-яёЁ]{2,30})$/;
 
-fio.insertAdjacentHTML("afterend", "<div class='validation-feedback' id='fio-feedback'></div>");
-email.insertAdjacentHTML("afterend", "<div class='validation-feedback' id='email-feedback'></div>");
-bday.insertAdjacentHTML("afterend", "<div class='validation-feedback' id='bday-feedback'></div>");
-telephone.insertAdjacentHTML("afterend", "<div class='validation-feedback' id='telephone-feedback'></div>");
-age.insertAdjacentHTML("afterend", "<div class='validation-feedback' id='age-feedback'></div>");
-submit.setAttribute("disabled", true);
 
-function canSubmit() {
+fio.after("<div class='validation-feedback' id='fio-feedback'></div>");
+fio.after("<div class='popover' id='fio-popover'>Введите через пробел фамилию имя отчество (пример: Иванов Иван Иванович)</div>");
+email.after("<div class='validation-feedback' id='email-feedback'></div>");
+email.after("<div class='popover' id='email-popover'>Введите электронную почту (пример: sutulaya@gmail.com)</div>");
+bday.after("<div class='validation-feedback' id='bday-feedback'></div>");
+bday.after("<div class='popover' id='bday-popover'>Введите дату в формате DD/MM/YYYY</div>");
+telephone.after("<div class='validation-feedback' id='telephone-feedback'></div>");
+telephone.after("<div class='popover' id='telephone-popover'>Введите телефон в формате +7/+3/8 и 10 цифр номера (пример: +79780006545)</div>");
+age.after("<div class='validation-feedback' id='age-feedback'></div>");
+submit.attr("disabled", true);
+
+function disabledStatus() {
   let submitKey = false;
   for (const key in flags) {
     if (flags[key] == false) {
@@ -36,113 +42,134 @@ function canSubmit() {
 }
 
 //проверкак фио
-fio.addEventListener("blur", function () {
-  if (fio.value === '' || fio.value == null) {
-    fio.style.border = "1px solid #dc3545";
-    if (!document.getElementById("fio-feedback").classList.contains("bad")) {
-      document.getElementById("fio-feedback").classList.add("bad");
+fio.blur(function () {
+  if (fio.val() === '' || fio.val() == null) {
+    fio.css("border", "1px solid #dc3545");
+    if (!$("#fio-feedback").hasClass("bad")) {
+      $("#fio-feedback").addClass("bad");
     }
-
-    document.getElementById("fio-feedback").innerHTML = "Введите фио";
-  } else if (!trueFio.test(fio.value)) {
-    fio.style.border = "1px solid #dc3545";
-    if (!document.getElementById("fio-feedback").classList.contains("bad")) {
-      document.getElementById("fio-feedback").classList.add("bad");
+    $("#fio-feedback").html("Введите фио");
+  } else if (!trueFio.test(fio.val())) {
+    fio.css("border", "1px solid #dc3545");
+    if (!$("#fio-feedback").hasClass("bad")) {
+      $("#fio-feedback").addClass("bad");
     }
-    document.getElementById("fio-feedback").innerHTML = "Введите корректные фио";
+    $("#fio-feedback").html("Введите корректные фио");
   } else {
-    fio.style.border = "1px solid #198754";
-    document.getElementById("fio-feedback").innerHTML = "";
+    fio.css("border", "1px solid #198754");
+    $("#fio-feedback").html = "";
     flags["_fio"] = true;
   }
-  submit.disabled = canSubmit();
+  submit.attr("disabled",disabledStatus());
+});
+
+fio.mouseenter(function(){
+  
+  $("#fio-popover").toggle("slow");
+});
+fio.mouseleave(function(){
+
+  $("#fio-popover").toggle(3000);
 });
 
 //проверка почты
-email.addEventListener('blur', function () {
-  if (email.value === '' || email.value == null) {
-    email.style.border = "1px solid #dc3545";
-    if (!document.getElementById("email-feedback").classList.contains("bad")) {
-      document.getElementById("email-feedback").classList.add("bad");
+email.blur(function () {
+  if (email.val() === '' || email.val() == null) {
+    email.css("border", "1px solid #dc3545");
+    if (!$("#email-feedback").hasClass("bad")) {
+      $("#email-feedback").addClass("bad");
     }
-    document.getElementById("email-feedback").innerHTML = "Введите mail";
+    $("#email-feedback").html("Введите email");
   } else {
-    email.style.border = "1px solid #198754";
-    document.getElementById("email-feedback").innerHTML = "";
+    email.css("border", "1px solid #198754");
+    $("#email-feedback").html = "";
     flags["_mail"] = true;
   }
-  submit.disabled = canSubmit();
+  submit.attr("disabled",disabledStatus());
 });
 
+
+email.mouseenter(function(){
+  
+  $("#email-popover").toggle("slow");
+});
+email.mouseleave(function(){
+
+  $("#email-popover").toggle(3000);
+});
 
 // проверка даты рождения
-bday.addEventListener('blur', function () {
-  if (bday.value === '' || bday === null) {
-    bday.style.border = "1px solid #dc3545";
-    if (!document.getElementById("bday-feedback").classList.contains("bad")) {
-      document.getElementById("bday-feedback").classList.add("bad");
+bday.blur(function () {
+  if (bday.val() === '' || bday.val() === null) {
+    bday.css("border", "1px solid #dc3545");
+    if (!$("#bday-feedback").hasClass("bad")) {
+      $("#bday-feedback").addClass("bad");
     }
-    document.getElementById("bday-feedback").innerHTML = "Введите день рождения";
+    $("#bday-feedback").html("Введите дату рождения");
   } else {
-    bday.style.border = "1px solid #198754";
-    document.getElementById("bday-feedback").innerHTML = "";
+    bday.css("border", "1px solid #198754");
+    $("#bday-feedback").html = "";
     flags["_bday"] = true;
   }
-  submit.disabled = canSubmit();
+  submit.attr("disabled",disabledStatus());
 });
 
+
+bday.mouseenter(function(){
+
+  $("#bday-popover").toggle("slow");
+});
+bday.mouseleave(function(){
+  $("#bday-popover").toggle(3000);
+});
 // проверка телефона
 
-telephone.addEventListener("blur", function () {
-  if (telephone.value == "" || telephone.value == null) {
-    telephone.style.border = "1px solid #dc3545";
-    if (!document.getElementById("telephone-feedback").classList.contains("bad")) {
-      document.getElementById("telephone-feedback").classList.add("bad");
+telephone.blur(function () {
+  if (telephone.val() == "" || telephone.val() == null) {
+    telephone.css("border", "1px solid #dc3545");
+    if (!$("#telephone-feedback").hasClass("bad")) {
+      $("#telephone-feedback").addClass("bad");
     }
-    document.getElementById("telephone-feedback").innerHTML = "Введите номер телефона";
-  } else if (truePhone.test(telephone.value) != true) {
+    $("#telephone-feedback").html("Введите номер телефона");
+  } else if (truePhone.test(telephone.val()) != true) {
     // telephone.setCustomValidity("Введите корректный номер телефона");
-    telephone.style.border = "1px solid #dc3545";
-    if (!document.getElementById("telephone-feedback").classList.contains("bad")) {
-      document.getElementById("telephone-feedback").classList.add("bad");
+    telephone.css("border", "1px solid #dc3545");
+    if (!$("#telephone-feedback").hasClass("bad")) {
+      $("#telephone-feedback").addClass("bad");
     }
-    document.getElementById("telephone-feedback").innerHTML = "Введите корректный номер телефона";
+    $("#telephone-feedback").html("Введите корректный номер телефона");
   } else {
-    telephone.style.border = "1px solid #198754";
-    document.getElementById("telephone-feedback").innerHTML = "";
+    telephone.css("border", "1px solid #198754");
+    $("#telephone-feedback").html = "";
     flags["_telephone"] = true;
   }
-  submit.disabled = canSubmit();
+  submit.attr("disabled",disabledStatus());
+});
+
+
+telephone.mouseenter(function(){
+  
+  $("#telephone-popover").toggle("slow");
+});
+telephone.mouseleave(function(){
+
+  $("#telephone-popover").toggle(3000);
 });
 
 // проверка возраста
 
-age.addEventListener("blur", function () {
-  if (age.value == "-") {
-    age.style.border = "1px solid #dc3545";
-    if (!document.getElementById("age-feedback").classList.contains("bad")) {
-      document.getElementById("age-feedback").classList.add("bad");
+age.blur(function () {
+  if (age.val() == "-") {
+    age.css("border", "1px solid #dc3545");
+    if (!$("#age-feedback").hasClass("bad")) {
+      $("#age-feedback").addClass("bad");
     }
-    document.getElementById("age-feedback").innerHTML = "Введите возраст";
+    $("#age-feedback").html("Введите возраст");
 
   } else {
-    age.style.border = "1px solid #198754";
-    document.getElementById("age-feedback").innerHTML = "";
+    age.css("border", "1px solid #198754");
+    $("#age-feedback").html = "";
     flags["_age"] = true;
   }
-  submit.disabled = canSubmit();
+  submit.attr("disabled",disabledStatus());
 });
-
-var genderValidator = ()=>{
-  if ((genderMale.checked == false) && (genderFemale.checked == false)) {
-    genderMale.setCustomValidity("Выберете пол");
-  } else {
-    genderMale.setCustomValidity("");
-  }
-};
-
-genderMale.addEventListener('change',genderValidator);
-
-genderValidator();
-
-

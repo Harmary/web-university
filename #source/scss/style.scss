@@ -1,5 +1,5 @@
 // Файл обнуляющих стилей
-@import "_nullstyle.scss";
+@import "nullstyle.scss";
 //Подключение шрифтов
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
@@ -10,6 +10,7 @@ $maxWidth: 1280;
     $maxWidth: $maxWidth - 320;
     font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 }
+
 @mixin first-selector($url, $minHeight) {
     margin: 50px auto;
     min-height: $minHeight;
@@ -82,7 +83,7 @@ body {
     background: #a6dded;
 }
 
-.main-title {
+%main-title {
     font-family: "Roboto", sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -102,6 +103,7 @@ body {
 .hello {
     @include first-selector("/img/img1.png", 280px);
     &__title {
+        @extend %main-title;
     }
     @media (max-width: 768px) {
         margin: 50px auto;
@@ -196,6 +198,7 @@ body {
 .t-facts {
     @include first-selector("/img/about-bg-2.png", 150px);
     &__title {
+        @extend %main-title;
     }
     @media (max-width: 768px) {
         margin: 50px auto;
@@ -328,6 +331,7 @@ body {
 .t-interests {
     @include first-selector("/img/interests-bg.png", 180px);
     margin-top: 130px;
+    @extend %main-title;
     h1 {
         padding-top: 43px;
         line-height: 35px;
@@ -534,7 +538,11 @@ body {
         text-align: center;
         font-family: "Open Sans", sans-serif;
     }
+    h1{
+        @extend %main-title;
+    }
 }
+
 
 #bigImage {
     display: none;
@@ -545,8 +553,13 @@ body {
     top: 0;
     z-index: 1;    
     overflow: auto;
-    background-color: rgba(116, 116, 116, 0.7);
-    img {
+    background-color: #ffffff10;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    .imgblock{
+        display: none;
+    }
+    #img01 {
         display: block;
         margin: 50px auto 0px auto;
         width: 600px;
@@ -555,7 +568,7 @@ body {
     }
     #caption {
         margin: auto;
-        display: block;
+        display: none;
         background-color: rgb(255, 255, 255);
         // border-radius: 10px;
         // border: 2px solid #000;
@@ -574,6 +587,30 @@ body {
         color: #000;
         font-size: 40px;
         font-weight: bold;
+    }
+    .right-arrow{
+        position: absolute;
+        top: 50%;
+        right: 200px;
+        cursor: pointer; 
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+        &:hover{
+            font-size: 45px;
+        }
+    }
+    .left-arrow{
+        position: absolute;
+        top: 50%;
+        left: 200px;
+        cursor: pointer; 
+        color: #000;
+        font-size: 40px;
+        font-weight: bold;
+        &:hover{
+            font-size: 45px;
+        }
     }
     @media (max-width: 600px) {
 
@@ -613,6 +650,7 @@ body {
 //------------------------------------------------------contacts-------------------------------------------------------
 .t-contact {
     margin: 50px auto;
+    @extend %main-title;
 }
 
 .contact {
@@ -640,6 +678,7 @@ body {
     }
     &__calendar{
         display: none;
+        z-index: 100;
         justify-content: center;
         padding: 10px 0;
         box-sizing: border-box;
@@ -672,6 +711,7 @@ body {
 }
 .form-group {
     margin-bottom: 30px;
+    position: relative;
 }
 .form-control {
     min-width: 800px;
@@ -688,9 +728,22 @@ body {
     }
 }
 
+.popover{
+    position:absolute;
+    top:80px;
+    left:300px;
+    box-sizing: border-box;
+    padding:5px;
+    display:none;
+    font-size:12px;
+    background:pink;
+    border: 1px solid black;
+    box-shadow: 6px 6px #00a;
+  }
 //---------------------------------------------------------test------------------------------------------------------------------
 .t-test {
     margin: 50px auto;
+    @extend %main-title;
 }
 .test {
     display: flex;
@@ -755,10 +808,112 @@ body {
 #test-form__ans2 {
     margin-left: 10px;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;    
+    overflow: auto;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    background-color: #ffffff10;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    &__dialog {
+        position: absolute;
+        top:45%;
+        left:30%;
+        width: 600px;
+        height: auto;
+
+    }
+
+    &__content {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: .3rem;
+        outline: 0;
+    }
+
+    &__header {
+        display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid #eceeef;
+
+    }
+
+    &__title {
+        margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.5;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    &__body {
+        position: relative;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 15px;
+        overflow: auto;
+        p{
+            display: block;
+            margin: 20px auto 40px auto;
+        }
+    }
+    &__buttons{
+        display: flex;
+        justify-content: center;
+        .yes-btn{
+            
+            background-color: rgb(168, 255, 157);
+            width: 70px;
+        }
+        .no-btn{
+            @extend .yes-btn;
+            margin-left: 100px;
+        }
+    }
+}
+.close {
+}
+
+
 //----------------------------------------------------study----------------------------------------------------
 .t-study {
     margin: 50px auto;
     &__title {
+        @extend %main-title;
         color: indigo;
     }
     &__subtitle {
@@ -808,5 +963,27 @@ body {
     }
     @media (max-width: 768px) {
         font-size: 10px;
+    }
+}
+//---------------------------history-----------------
+.t-history{
+    margin: 30px;
+    @extend %main-title;
+}
+.history {
+    
+
+    &__table {margin-bottom: 50px;
+    }
+}
+.table {
+
+    &__label {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__row {
+        
     }
 }

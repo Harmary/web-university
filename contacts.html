@@ -100,7 +100,7 @@
                         <div class="form-group contact__gender">
                             <h2>Пол</h2>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="gender-male"value="option1">
+                                <input class="form-check-input" type="radio" name="gender" id="gender-male"value="option1" checked>
                                 <label class="form-check-label" for="gender-male">Мужской</label>
                             </div>
                             <div class="form-check">
@@ -124,16 +124,7 @@
         </select>
         <table class="calendar__days">
             <tbody>
-                <script type="text/javascript">
-                
-                for (let i = 0; i < 6; i++) {
-                        document.write('<tr>');
-                        for (let j = 0; j < 7; j++) {
-                            document.write('<td class="calendar__link" id="td-' + i + '-' + j + '">🗓</td>');
-                        }
-                        document.write('</tr>');
-                    }
-
+                <script src="js/writeDays.js" type="text/javascript">
                 </script>
             </tbody>
         </table>

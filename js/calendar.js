@@ -1,16 +1,17 @@
-var bdayInput = document.getElementById("bday");
-var calendar = document.getElementById("calendar");
-var calendarLink = document.getElementsByClassName("calendar__link");
-bdayInput.addEventListener("focus", function () {
-    calendar.style.display = "flex";
+
+var bdayInput = $("#bday");
+var calendar = $("#calendar");
+var dateLink = $(".date-link");
+
+$("#bday").focus(function () {
+    $("#calendar").css("display", "flex");
 });
-for (let i = 0; i < calendarLink.length; i++) {
-   
-calendarLink[i].addEventListener("click", function () {
-        calendar.style.display = "none";
+
+
+$(".date-link").click(function () { 
+    $("#calendar").hide();
 });
-    
-}
+
 
 drawMonth(0, 31);
 selectDate(1);
@@ -24,7 +25,7 @@ function drawMonth(d, daysInMonth) {
                 d--;
                 document.getElementById("td-" + i + "-" + j).innerHTML = '🗓';
             } else if (daysInMonth > 0) {
-                document.getElementById("td-" + i + "-" + j).innerHTML = '<a href="#" onclick="selectDate(' + day + ');return false;">' + day + '</a>';
+                document.getElementById("td-" + i + "-" + j).innerHTML = '<a href="#" class="date-link" onclick="selectDate(' + day + ');return false;">' + day + '</a>';
                 day++;
                 daysInMonth--;
             } else {
@@ -35,27 +36,27 @@ function drawMonth(d, daysInMonth) {
 }
 
 function selectDate(day) {
-    var year = document.getElementById("year-select").value;
-    var month = document.getElementById("month-selection").value;
+    var year = $("#year-select").val();
+    var month = $("#month-selection").val();
     if(month<10){
         month = '0'+month;
     }
-    document.getElementById("bday").value = day + '.' + month + '.' + year;
+    $("#bday").val(day + '.' + month + '.' + year);
 }
 
 
 function changeDate() {
     var d = new Date();
-    var year = document.getElementById("year-select").value;
-    var month = document.getElementById("month-selection").value;
+    var year = $("#year-select").val();
+    var month = $("#month-selection").val();
     var d = new Date(year, month - 1, 0);
-    drawMonth(d.getDay(), new Date(year, month, 0).getDate());
+    drawMonth(d.getDay(), new Date($("#year-select").val(), $("#month-selection").val(), 0).getDate());
 }
 
-document.getElementById("year-select").onchange = function (event) {
+$("#year-select").change(function (event) {
     changeDate();
-};
+});
 
-document.getElementById("month-selection").onchange = function (event) {
+$("#month-selection").change( function (event) {
     changeDate();
-};
+});

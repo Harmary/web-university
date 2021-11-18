@@ -20,7 +20,7 @@ function setCookie(url)
   if(pageLocalSession == "NaN" || pageLocalSession == undefined)
   {
     pageLocalSession = 0;
-    for (var pageTitle in pageTitles) {
+    for (let pageTitle in pageTitles) {
       sessionStorage.setItem(pageTitle, 0);
     }
   }
@@ -41,7 +41,7 @@ function getCookie(url, isLocalSession)
 
 function drawSessionTable(isLocalSession)
 {
-  for (var pageTitle in pageTitles) {
+  for (let pageTitle in pageTitles) {
     document.write("<tr>");
     document.write('<td>'+pageTitles[pageTitle]+'</td>');
     document.write('<td>'+getCookie(pageTitle, isLocalSession)+'</td>');
@@ -59,7 +59,7 @@ function clearCookies()
 function startCookies()
 {
   var i = 0;
-  for (var pageTitle in pageTitles) {
+  for (let pageTitle in pageTitles) {
     localStorage.setItem(i, 0);
     sessionStorage.setItem(i, 0);
     i++;

@@ -50,10 +50,9 @@ function generateData(){
 
 function DisplayData() {
     let data = new Date();
-    let DataNode = document.getElementById("data");
-    DataNode.innerHTML = generateData();
+    $("#data").html(generateData());
     setInterval(() => {
-        DataNode.innerHTML = generateData();
+        $("#data").html(generateData());
     }, 1000);
     
 }
