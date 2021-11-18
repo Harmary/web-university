@@ -1,3 +1,4 @@
+
 var bdayInput = $("#bday");
 var calendar = $("#calendar");
 var dateLink = $(".date-link");
