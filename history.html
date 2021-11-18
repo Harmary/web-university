@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -18,16 +19,10 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/history.js"></script>
-    <script type="text/javascript">
-        setCookie(2);
-      </script>
-    <title>Personal website</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <main class="page">
-            <nav class="navbar navbar-expand-lg navbar-light header-bg" >
+    <nav class="navbar navbar-expand-lg navbar-light header-bg" >
     <a class="navbar-brand header__brand" href="#">
         <img src="/img/heart_logo.png" width="34" height="30" class="d-inline-block align-top" alt="">
     </a>
@@ -84,71 +79,48 @@
     <span id="data"></span>
 </nav>
 
-            <div class="content">
-                <div class="container">
-                    <section class="t-interests">
-                        <h1 class="main-title">Мои интересы</h1>
-                    </section>
-                    <section class="interests-list">
-                        <div class="list">
-                            <script src="/js/interests.js"></script>
-                            <!-- <ul>
-                                <li><a href="#books">Мои любимые книги</a></li>
-                                <li><a href="#films">Мои любимые фильмы</a></li>
-                                <li><a href="#hobbies">Мои хобби</a></li>
-                            </ul> -->
-                        </div>
-                    </section>
-                </div>
-                <section class="books" id="books">
-                    <div class="container">
-                        <div class="books__title int-title"><h2>Книги</h2></div>
-                        <div class="books__img int-img">
-                            <img src="/img/books.png" alt="">
-                        </div>
-                        <div class="books__text int-text">Мои любимые книги это "Вино из одуванчиков" и "Книжный вор"</div>
-                    </div>
-                </section>
-                <section class="films" id="films">
-                    <div class="container ">
-                        <div class="films__title int-title"><h2>Фильмы</h2></div>
-                        <div class="films__img int-img">
-                            <img src="/img/film.png" alt="">
-                        </div>
-                        <div class="films__text int-text">Мои любимые фильмы это "Великий Гетсби" и "Интерстеллар"</div>
-                    </div>
-                </section>
-                <section class="hobbies" id="hobbies">
-                    <div class="container">
-                        <div class="hobbies__title int-title"><h2>Хобби</h2></div>
-                        <div class="hobbies__items row align-items-center flex-column flex-md-row">
-                            <div class="col-auto col-md-4 h-auto">
-                                <div class="hobbies__img int-img">
-                                    <img src="/img/volleyball.png" alt="">
-                                </div>
-                                <div class="hobbies__text int-text">Волейбол</div>
-                            </div>
-                            <div class="col-auto col-md-4 h-auto">
-                                <div class="hobbies__img int-img">
-                                    <img src="/img/drawing.png" alt="">
-                                </div>
-                                <div class="hobbies__text int-text">Рисование</div>
-                            </div>
-                            <div class="col-auto col-md-4 h-auto">
-                                <div class="hobbies__img int-img">
-                                    <img src="/img/spaghetti.png" alt="">
-                                </div>
-                                <div class="hobbies__text int-text">Готовка</div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </section>
+    <div class="wrapper">
+        <section onmousedown="InterestFuncOut()">
+            <h2 id="history-label" class="t-history main-title">История просмотра</h2><br/>
+          <div class="history">
+            <div class="container">
+              <table class="history__table table ">
+                <tbody>
+                  <tr class="history__table table__label">
+                      <td class="" colspan="2">История текущего сеанса</td>
+                  </tr>
+                  <tr class="table__row">
+                      <td>Страница</td>
+                      <td>Количество посещений</td>
+                  </tr>
+                  <script type="text/javascript">
+                    setCookie(7);
+                    drawSessionTable(true);
+                  </script>
+                </tbody>
+              </table>
+              <table class="history__table table">
+                <tbody>
+                  <tr class="history__table table__label">
+                      <td colspan="2">История за все время</td>
+                  </tr>
+                  <tr class="table__row">
+                      <td>Страница</td>
+                      <td>Количество посещений</td>
+                  </tr>
+                  <script type="text/javascript">
+                    drawSessionTable(false);
+                  </script>
+                </tbody>
+              </table>
             </div>
-        </main>
+          </div>
+          </section>
     </div>
 </body>
+
 <script src="/js/changeImage.js"></script>
 <script src="/js/data.js"></script>
 <script src="/js/dropdown.js"></script>
+
 </html>
