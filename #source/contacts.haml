@@ -1,0 +1,40 @@
+.content
+  .t-contact
+    .container
+      %h1.main-title Напиши мне!
+  %section.contact
+    %form#form.form{:action => "mailto:maria.h4rlamova@gmail.com", :method => "post", :name => "form"}
+      .form-group.contact__name
+        %h2 ФИО
+        %input#fio.form-control{:name => "fio", :placeholder => "Иванов Иван Иванович", :type => "text"}
+      .form-group.contact__gender
+        %h2 Пол
+        .form-check
+          %input#gender-male.form-check-input{:checked => "checked", :name => "gender", :type => "radio", :value => "option1"}
+          %label.form-check-label{:for => "gender-male"} Мужской
+        .form-check
+          %input#gender-female.form-check-input{:name => "gender", :type => "radio", :value => "option1"}
+          %label.form-check-label{:for => "gender-female"} Женский
+      .form-group.contact__bday
+        %h2{:for => "form-bday"} Дата рождения
+        %input#bday.form-control{:name => "form-bday", :type => "text"}
+        / @import "calendar.html"
+      .form-group.contact__age
+        %h2{:for => "form-age"} Возраст
+        %select#form-age.form-control{:name => "age"}
+          %option -
+          %option 16-18
+          %option 18-21
+          %option 21-25
+          %option 25-30
+          %option 30-40
+          %option 40-50
+      .form-group.contact__email
+        %h2{:for => "form-email"} Электронная почта
+        %input#form-email.form-control{:name => "email", :placeholder => "name@example.com", :type => "email"}
+      .form-group.contact__telephone
+        %h2{:for => "form-telephone"} Номер телефона
+        %input#form-telephone.form-control{:name => "telephone", :placeholder => "+7(999)1111111", :type => "tel"}
+      .error
+      %input#submit.btn.btn-primary{:type => "submit", :value => "Submit"}
+      %input.btn.btn-primary{:type => "reset", :value => "Reset"}
