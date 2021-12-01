@@ -25,17 +25,18 @@
             .container
               %ul.navbar-nav.justify-content-center
                 %li.nav-item.active
+                  - name = 'main.haml'
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
-                  %a.nav-link{:href =>"main.haml"}
+                  %a.nav-link{:href => "#{name}"}
                     Hello
                     %span.sr-only (current)
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
-                  %a.nav-link{:href => "/about.html"} Обо мне
+                  %a.nav-link{:href => "#{name}"} Обо мне
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
                   #dropdown.dropdown__menu
-                    %a#dropbtn.nav-link{:href => "/interests.html"} Интересы
+                    %a#dropbtn.nav-link{:href => "#{name}"} Интересы
                     %ul#myDropdown.dropdown-content
                       %li
                         %a{:href => "/interests.html#books"} Книги
@@ -45,13 +46,13 @@
                         %a{:href => "/interests.html#hobbies"} Хобби
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
-                  %a.nav-link{:href => "/study.html"} Учеба
+                  %a.nav-link{:href => "#{name}"} Учеба
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
-                  %a.nav-link{:href => "/Gallery.html"} Галерея
+                  %a.nav-link{:href => "#{name}"} Галерея
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
-                  %a.nav-link{:href => "/contacts.html"} Контакт
+                  %a.nav-link{:href => "#{name}"} Контакт
                 %li.nav-item
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
                   %a.nav-link{:href => "/test.html"} Тест
@@ -59,7 +60,7 @@
                   %img.nav-img{:alt => "", :src => "/img/cycle.svg"}
                   %a.nav-link{:href => "/history.html"} История
           %span#data
-        = Haml::Engine.new(File.read('gallary.haml')).render
+        = Haml::Engine.new(File.read(name)).render
   %script{:src => "/js/changeImage.js"}
   %script{:src => "/js/data.js"}
   %script{:src => "/js/dropdown.js"}
